@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'seguridad.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'seguridad_db',  # Nombre de la base de datos
-        'USER': 'seguridad_user',  # Usuario de PostgreSQL
-        'PASSWORD': 'tu_contraseña',  # La contraseña que configuraste en PostgreSQL
-        'HOST': 'localhost',
+        'NAME': 'monitoring_db',  # Nombre de la base de datos
+        'USER': 'monitoring_user',  # Usuario de PostgreSQL
+        'PASSWORD': 'isis2503',  # La contraseña que configuraste en PostgreSQL
+        'HOST': '54.165.194.15',
         'PORT': '5432',
     }
 }

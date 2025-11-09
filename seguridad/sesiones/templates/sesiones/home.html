@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login y Registro</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    .container { display: flex; gap: 40px; }
+    form { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; }
+    .msg { padding: 10px; border-radius: 6px; margin-bottom: 10px; }
+    .ok { background: #d8ffd8; color: #064; }
+    .alert { background: #ffd8d8; color: #900; }
+  </style>
+</head>
+<body>
+  <h1>Sistema de Seguridad - Detección de Sesiones</h1>
+
+  {% if user.is_authenticated %}
+    <p>Has iniciado sesión como <strong>{{ user.username }}</strong>.</p>
+    <p><a href="{% url 'logout' %}">Cerrar sesión</a></p>
+  {% endif %}
+
+  {% if message %}
+    <div class="msg {% if sessions_count > 1 %}alert{% else %}ok{% endif %}">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  {% if not user.is_authenticated %}
+    <div class="container">
+      <form method="post">
+        {% csrf_token %}
+        <h3>Iniciar Sesión</h3>
+        {{ login_form.as_p }}
+        <button type="submit" name="login">Entrar</button>
+      </form>
+
+      <form method="post">
+        {% csrf_token %}
+        <h3>Registrarse</h3>
+        {{ register_form.as_p }}
+        <button type="submit" name="register">Crear usuario</button>
+      </form>
+    </div>
+  {% endif %}
+</body>
+</html>

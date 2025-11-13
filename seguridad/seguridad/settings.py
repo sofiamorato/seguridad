@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'monitoring_db',  # Nombre de la base de datos
         'USER': 'monitoring_user',  # Usuario de PostgreSQL
         'PASSWORD': 'isis2503',  # La contraseña que configuraste en PostgreSQL
-        'HOST': '54.165.194.15',
+        'HOST': '54.167.23.80',
         'PORT': '5432',
     }
 }
